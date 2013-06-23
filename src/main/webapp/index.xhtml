@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>hasCode.com - Togglz Feature Flag Tutorial</title>
+</h:head>
+<h:body>
+	<h1>Features enabled</h1>
+	<h:panelGroup rendered="#{features['DISPLAY_SIMPLE_USER_PROFILE']}">
+		Display simple user profile
+		<hr/>
+	</h:panelGroup>
+		<h:panelGroup rendered="#{features['DISPLAY_EXTENDED_USER_PROFILE']}">
+		Display extended user profile
+	</h:panelGroup>
+</h:body>
+</html>

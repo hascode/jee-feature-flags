@@ -6,8 +6,9 @@ import org.togglz.core.Feature;
 import org.togglz.core.manager.TogglzConfig;
 import org.togglz.core.repository.StateRepository;
 import org.togglz.core.repository.mem.InMemoryStateRepository;
+import org.togglz.core.user.FeatureUser;
+import org.togglz.core.user.SimpleFeatureUser;
 import org.togglz.core.user.UserProvider;
-import org.togglz.servlet.user.ServletUserProvider;
 
 import com.hascode.tutorial.fflag.feature.UserFeatures;
 
@@ -28,7 +29,13 @@ public class FeatureFlagConfiguration implements TogglzConfig {
 
 	@Override
 	public UserProvider getUserProvider() {
-		return new ServletUserProvider(FEATURE_FLAG_ADMIN_ROLE);
+		// return new ServletUserProvider(FEATURE_FLAG_ADMIN_ROLE);
+		return new UserProvider() {
+			@Override
+			public FeatureUser getCurrentUser() {
+				return new SimpleFeatureUser("admin", true);
+			}
+		};
 	}
 
 }

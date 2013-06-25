@@ -15,8 +15,6 @@ import com.hascode.tutorial.fflag.feature.UserFeatures;
 @ApplicationScoped
 public class FeatureFlagConfiguration implements TogglzConfig {
 
-	private static final String FEATURE_FLAG_ADMIN_ROLE = "feature_flag_admin";
-
 	@Override
 	public Class<? extends Feature> getFeatureClass() {
 		return UserFeatures.class;
@@ -29,7 +27,6 @@ public class FeatureFlagConfiguration implements TogglzConfig {
 
 	@Override
 	public UserProvider getUserProvider() {
-		// return new ServletUserProvider(FEATURE_FLAG_ADMIN_ROLE);
 		return new UserProvider() {
 			@Override
 			public FeatureUser getCurrentUser() {
